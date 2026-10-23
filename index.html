@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Revisão interativa de Matemática: Capítulo 24, área de figuras geométricas planas.">
+<title>Capítulo 24 — Área de figuras geométricas planas | Professora Samanta</title>
+<style>
+:root{--azul:#163a56;--azul2:#246b8c;--verde:#218878;--verde-claro:#e8f5f0;--texto:#263844;--cinza:#5e707a;--borda:#d9e5e9;--bom:#19845c;--erro:#d9574e;--laranja:#f4a340;--sombra:0 8px 24px #1c3b4a12}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#f4f7f7;color:var(--texto);font:16px/1.55 Arial,Helvetica,sans-serif}
+a{color:var(--azul2)}
+header{background:var(--azul);color:#fff;padding:20px 16px}
+.marca{max-width:1100px;margin:auto;display:flex;gap:22px;align-items:center}
+.logo{width:220px;max-width:100%;height:auto;border-radius:7px;background:#080808}
+.fallback{display:none;font-weight:900;line-height:1.3;border:2px solid #fff;padding:12px;border-radius:8px}
+.marca h1{margin:0;font-size:clamp(1.45rem,3vw,2.2rem);line-height:1.2}
+.marca p{margin:5px 0 0;color:#d7e8ec}
+nav{position:sticky;top:0;z-index:10;background:#fff;box-shadow:0 2px 6px #163a5610;border-bottom:1px solid var(--borda)}
+.nav{max-width:1100px;margin:auto;padding:8px 12px;display:flex;flex-wrap:wrap;gap:7px}
+.nav a{text-decoration:none;color:var(--azul);font-weight:700;font-size:.9rem;padding:7px 10px;border-radius:7px}
+.nav a:hover{background:var(--verde-claro)}
+main{max-width:1100px;margin:auto;padding:20px 16px 40px}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center;background:linear-gradient(125deg,#17435d,#216f79);color:white;border-radius:20px;padding:clamp(20px,4vw,34px);box-shadow:var(--sombra)}
+.hero h2{font-size:clamp(1.65rem,3vw,2.5rem);line-height:1.12;margin:8px 0 12px}
+.hero p{color:#e5f0f2;margin:8px 0}
+.hero svg{width:100%;height:auto;border-radius:12px;border:3px solid #ffffff65}
+.tag{font-size:.78rem;text-transform:uppercase;letter-spacing:.09em;color:#ffdc83;font-weight:800}
+.pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.pills span{background:#ffffff20;border:1px solid #ffffff50;padding:6px 10px;border-radius:22px;font-size:.82rem;font-weight:700}
+.sec{margin-top:24px;background:#fff;border:1px solid var(--borda);border-radius:17px;padding:clamp(17px,3vw,28px);box-shadow:var(--sombra)}
+.sec h2{color:var(--azul);margin:0 0 10px;font-size:clamp(1.35rem,2.3vw,1.8rem)}
+.intro{color:var(--cinza);margin:6px 0 16px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.card{background:#fbfdfd;border:1px solid var(--borda);border-radius:12px;padding:15px}
+.card h3{margin:0 0 7px;color:var(--azul);font-size:1.02rem}
+.formula{display:inline-block;background:#e9f4f6;color:#154961;padding:8px 11px;border-radius:8px;font-size:1.1rem;font-weight:800}
+.card p{margin:8px 0 0;color:var(--cinza);font-size:.92rem}
+.tablewrap{overflow-x:auto;border:1px solid var(--borda);border-radius:10px;margin:14px 0}
+table{border-collapse:collapse;width:100%;min-width:520px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--borda)}
+th{background:#e8f3f3;color:#164d5d}
+tr:last-child td{border-bottom:0}
+.note{background:#fff8e7;border-left:5px solid var(--laranja);padding:13px 15px;border-radius:8px;margin:13px 0}
+.steps{display:flex;align-items:stretch;justify-content:center;gap:8px;flex-wrap:wrap}
+.unit{background:#eff7f7;border:1px solid #cfe4e2;border-radius:10px;text-align:center;padding:12px;min-width:105px;font-weight:800;color:#17576a}
+.unit small{display:block;color:var(--cinza);font-weight:400}
+.quizhead{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pill{background:#eef5f6;color:#22596a;border-radius:20px;padding:6px 10px;font-weight:800;font-size:.82rem}
+.questions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.question{border:1px solid var(--borda);border-radius:12px;overflow:hidden;background:white;break-inside:avoid}
+.qhead{display:flex;justify-content:space-between;gap:8px;align-items:center;background:#f2f8f8;padding:10px 13px}
+.qnum{font-weight:900;color:var(--azul)}
+.cat{font-size:.7rem;color:#226b66;background:#e0f2ed;border-radius:6px;padding:4px 7px;text-align:right}
+.qbody{padding:13px}
+.qbody p{font-weight:600;margin:0 0 10px}
+.option{display:flex;gap:8px;align-items:flex-start;border:1px solid #e1e9ec;border-radius:8px;padding:8px;margin:6px 0;cursor:pointer;font-size:.91rem}
+.option:hover{background:#f6fbfa;border-color:#91c6c5}
+.option input{margin-top:4px;accent-color:var(--verde)}
+.option:has(input:checked){background:#e9f5f2;border-color:#61b8a9}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+.btn{border:0;border-radius:9px;padding:12px 16px;font-weight:800;cursor:pointer;font-size:.94rem}
+.primary{background:var(--verde);color:#fff}
+.secondary{background:#eaf1f3;color:var(--azul)}
+.status{color:var(--cinza);font-size:.9rem;font-weight:700}
+.results{display:none}
+.results.show{display:block}
+.resultgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:15px 0}
+.resultcard{background:#f8fbfc;border:1px solid var(--borda);border-radius:13px;padding:17px}
+.score{font-size:2.7rem;font-weight:900;color:var(--azul);line-height:1.1}
+.muted{color:var(--cinza);font-size:.9rem}
+.badges{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.badges span{background:white;border:1px solid var(--borda);border-radius:8px;padding:6px 9px;font-size:.82rem}
+.piewrap{display:flex;align-items:center;flex-wrap:wrap;gap:17px}
+.pie{width:160px;height:160px;flex:0 0 auto;border-radius:50%;background:conic-gradient(var(--bom) 0 0%,var(--erro) 0 100%);border:1px solid var(--borda)}
+.legend{display:grid;gap:8px;font-size:.9rem}
+.swatch{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:7px}
+.good{background:var(--bom)}
+.bad{background:var(--erro)}
+.perform{display:grid;gap:12px;margin:15px 0}
+.rowperf{display:grid;grid-template-columns:minmax(140px,1fr) 2fr 48px;gap:10px;align-items:center}
+.rowperf strong{font-size:.86rem}
+.bar{height:11px;background:#e3ecef;border-radius:20px;overflow:hidden}
+.bar span{display:block;height:100%;background:linear-gradient(90deg,#62b5a2,#1b837b)}
+.pct{text-align:right;font-weight:900;color:var(--azul)}
+.insights,.plan{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.insight,.planitem{border:1px solid var(--borda);border-radius:11px;padding:14px}
+.insight h3,.planitem h3{color:var(--azul);font-size:1rem;margin:0 0 7px}
+.insight p,.planitem p{margin:0;color:var(--cinza);font-size:.9rem}
+.planitem{background:#fbfdfd}
+.answers details{border:1px solid var(--borda);border-radius:9px;margin:7px 0;overflow:hidden}
+.answers summary{cursor:pointer;padding:11px 13px;background:#f4f8f8;color:var(--azul);font-weight:800}
+.answerbody{padding:12px;border-top:1px solid var(--borda)}
+.answerbody p{margin:5px 0}
+.ok{color:var(--bom);font-weight:800}
+.no{color:var(--erro);font-weight:800}
+footer{background:var(--azul);color:#e5f1f2;text-align:center;padding:22px 14px;margin-top:22px}
+.small{font-size:.82rem}
+@media(max-width:800px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.questions{grid-template-columns:1fr}.resultgrid{grid-template-columns:1fr}}
+@media(max-width:560px){.marca{align-items:flex-start;flex-direction:column;gap:12px}.logo{width:205px}.grid,.insights,.plan{grid-template-columns:1fr}.rowperf{grid-template-columns:1fr 2fr 45px}.pie{width:140px;height:140px}}
+@media print{nav,.actions{display:none!important}body{background:white}.hero,.sec,.resultcard{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+<header><div class="marca">
+<img class="logo" src="https://samanta-preparatorios.github.io/Aula-1-de-Ciencias/Logo%20preparatorio1.jpeg" alt="Logo Curso Preparatório Professora Samanta" onerror="this.style.display='none';document.getElementById('fallback').style.display='block'">
+<div id="fallback" class="fallback">CURSO PREPARATÓRIO<br>PROFESSORA SAMANTA</div>
+<div><h1>Matemática — Capítulo 24</h1><p>Área de figuras geométricas planas · 7º ano</p></div>
+</div></header>
+<nav><div class="nav"><a href="#revisao">Revisão visual</a><a href="#unidades">Unidades de área</a><a href="#questionario">Questionário</a><a href="#resultado">Desempenho</a><a href="#gabarito">Gabarito</a></div></nav>
+<main>
+<section class="hero"><div><span class="tag">Revisão + diagnóstico</span><h2>Compreender a área, visualizar as figuras e resolver problemas</h2><p>Revise os conceitos e as fórmulas. Depois responda às 24 questões sem consultar o gabarito. Ao corrigir, veja seu percentual de acertos, os conteúdos com maior facilidade e dificuldade e um plano de estudo orientado.</p><div class="pills"><span>24 questões</span><span>Correção automática</span><span>Gráfico de pizza</span><span>Gabarito comentado</span></div></div>
+<div><svg viewBox="0 0 600 330" role="img" aria-label="Ilustração vetorial de uma paisagem com vegetação e uma área queimada" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cdebf1"/><stop offset="1" stop-color="#f5f5d9"/></linearGradient></defs><rect width="600" height="330" rx="12" fill="url(#sky)"/><circle cx="490" cy="55" r="25" fill="#ffd36b"/><path d="M0 165 Q100 100 200 165 T400 155 T600 160 V330 H0Z" fill="#70a777"/><path d="M0 220 Q125 165 255 220 T470 205 T600 214 V330 H0Z" fill="#2f7757"/><g fill="#174f43"><circle cx="58" cy="170" r="28"/><circle cx="97" cy="155" r="32"/><circle cx="135" cy="173" r="26"/><circle cx="180" cy="152" r="33"/><circle cx="221" cy="173" r="28"/></g><g fill="#39835f"><circle cx="58" cy="163" r="18"/><circle cx="97" cy="148" r="21"/><circle cx="135" cy="166" r="17"/><circle cx="180" cy="145" r="22"/><circle cx="221" cy="166" r="18"/></g><path d="M305 210 L352 172 L376 205 L408 146 L434 191 L469 155 L496 190 L530 171 L600 205 V330 H300Z" fill="#644334"/><path d="M322 252 l28 -27 18 21 29 -39 20 30 26 -21 22 28 32 -25 26 24 35 -17 32 22 V330 H310Z" fill="#9b6749"/><rect x="18" y="18" width="250" height="45" rx="8" fill="#ffffffdf"/><text x="32" y="37" font-family="Arial" font-size="13" font-weight="700" fill="#163a56">ÁREA DE FIGURAS PLANAS</text><text x="32" y="53" font-family="Arial" font-size="10" fill="#263844">A área mede a superfície ocupada.</text></svg><p class="small">Ilustração vetorial para relacionar área e superfícies reais.</p></div></section>
+
+<section class="sec" id="revisao"><h2>1. Revisão visual — fórmulas de área</h2><p class="intro">A área mede a superfície ocupada por uma figura plana. Como envolve duas dimensões, usamos unidades quadradas, como cm² e m².</p>
+<div class="grid">
+<article class="card"><h3>Retângulo</h3><div class="formula">A = b × h</div><p>Multiplique a base pelo comprimento da altura. Ex.: 18 × 11 = 198 m².</p><svg viewBox="0 0 220 80" aria-label="Diagrama de retângulo"><rect x="49" y="10" width="124" height="54" rx="2" fill="#b8dce8" stroke="#246b8c" stroke-width="2"/><text x="110" y="76" text-anchor="middle" class="svg-label">base (b)</text><text x="183" y="41" class="svg-label">h</text></svg></article>
+<article class="card"><h3>Quadrado</h3><div class="formula">A = l²</div><p>Multiplique o lado por ele mesmo. Ex.: lado 14 m → 14² = 196 m².</p><svg viewBox="0 0 220 80" aria-label="Diagrama de quadrado"><rect x="79" y="8" width="58" height="58" fill="#ffe2a8" stroke="#bb7620" stroke-width="2"/><text x="108" y="77" text-anchor="middle" class="svg-label">l</text></svg></article>
+<article class="card"><h3>Paralelogramo</h3><div class="formula">A = b × h</div><p>Use a altura perpendicular à base, não o lado inclinado.</p><svg viewBox="0 0 220 80" aria-label="Diagrama de paralelogramo"><polygon points="55,62 107,12 180,12 128,62" fill="#b7dfd1" stroke="#218878" stroke-width="2"/><path d="M107 12 V62" stroke="#163a56" stroke-dasharray="4 3"/><text x="119" y="46" class="svg-label">h</text><text x="95" y="77" class="svg-label">b</text></svg></article>
+<article class="card"><h3>Triângulo</h3><div class="formula">A = (b × h) ÷ 2</div><p>Multiplique base e altura e divida por dois.</p><svg viewBox="0 0 220 80" aria-label="Diagrama de triângulo"><polygon points="36,65 184,65 137,10" fill="#f3c5bd" stroke="#ba574b" stroke-width="2"/><path d="M137 10 V65" stroke="#163a56" stroke-dasharray="4 3"/><text x="110" y="78" text-anchor="middle" class="svg-label">base (b)</text><text x="143" y="42" class="svg-label">h</text></svg></article>
+<article class="card"><h3>Trapézio</h3><div class="formula">A = ((B + b) × h) ÷ 2</div><p>Some as duas bases, multiplique pela altura e divida por dois.</p><svg viewBox="0 0 220 80" aria-label="Diagrama de trapézio"><polygon points="68,12 151,12 190,65 30,65" fill="#d3d5f3" stroke="#5e63a9" stroke-width="2"/><path d="M68 12 V65" stroke="#163a56" stroke-dasharray="4 3"/><text x="109" y="9" text-anchor="middle" class="svg-label">b</text><text x="109" y="78" text-anchor="middle" class="svg-label">B</text></svg></article>
+<article class="card"><h3>Triângulo equilátero</h3><div class="formula">A = (l²√3) ÷ 4</div><p>Use quando os três lados têm a mesma medida e só conhecemos o lado l.</p><svg viewBox="0 0 220 80" aria-label="Diagrama de triângulo equilátero"><polygon points="110,8 52,68 168,68" fill="#c8e4bc" stroke="#428150" stroke-width="2"/><text x="110" y="79" text-anchor="middle" class="svg-label">l</text></svg></article>
+</div>
+<div class="note"><strong>Figuras compostas:</strong> decomponha a figura em partes conhecidas. Some as áreas das partes que formam a figura sem sobreposição. Subtraia a área de uma fonte, recorte ou região retirada quando a pergunta pedir a área restante.</div></section>
+
+<section class="sec" id="unidades"><h2>2. Conversões de unidades de área</h2><p class="intro">O metro (m) mede comprimento; o metro quadrado (m²) mede área. Como a unidade está ao quadrado, cada mudança entre unidades quadradas consecutivas equivale a multiplicar ou dividir por 100.</p>
+<div class="steps"><div class="unit">m²<small>unidade maior</small></div><div class="unit">→ × 100 →<small>para a direita</small></div><div class="unit">dm² → cm²<small>cada passo: × 100</small></div><div class="unit">mm²<small>unidade menor</small></div></div>
+<div class="tablewrap"><table><thead><tr><th>Equivalência</th><th>Valor</th><th>Como lembrar</th></tr></thead><tbody><tr><td>1 hectare (ha)</td><td><strong>10.000 m²</strong></td><td>Um hectare corresponde a dez mil metros quadrados.</td></tr><tr><td>1 are (a)</td><td><strong>100 m²</strong></td><td>Um are corresponde a cem metros quadrados.</td></tr><tr><td>1 km²</td><td><strong>1.000.000 m²</strong></td><td>(1.000 m)² = 1.000.000 m².</td></tr><tr><td>1 m²</td><td><strong>100 dm²</strong></td><td>De m² para dm², multiplique por 100.</td></tr><tr><td>1 dm²</td><td><strong>100 cm²</strong></td><td>De dm² para cm², multiplique por 100.</td></tr></tbody></table></div>
+<div class="note"><strong>Dica:</strong> para passar de uma unidade de área para uma menor, multiplique por 100 a cada etapa. Para passar para uma unidade maior, divida por 100 a cada etapa. Converta todas as medidas para a mesma unidade antes de calcular a área.</div></section>
+
+<section class="sec" id="questionario"><div class="quizhead"><h2>3. Questionário — 24 questões</h2><span class="pill">4 alternativas por questão</span><span class="pill">Questões do capítulo</span></div><p class="intro">Marque uma alternativa por questão. Quando terminar, clique em “Corrigir e analisar desempenho”. O gabarito comentado ficará disponível depois da correção.</p><div id="questions" class="questions"></div><div class="actions"><button class="btn primary" id="gradeBtn">Corrigir e analisar desempenho</button><button class="btn secondary" id="resetBtn">Limpar respostas</button><span class="status" id="status">Nenhuma questão corrigida ainda.</span></div></section>
+
+<section class="sec results" id="resultado"><h2>4. Resultado e diagnóstico de aprendizagem</h2><p class="intro">O gráfico mostra o percentual geral de acertos. Questões em branco são contabilizadas como não acertadas e aparecem separadas no resumo.</p><div class="resultgrid"><div class="resultcard"><div class="score" id="score">0%</div><div id="scoreText" class="muted">Faça o questionário para ver seu resultado.</div><div class="badges"><span id="correctBadge">Acertos: 0</span><span id="wrongBadge">Erros: 0</span><span id="blankBadge">Em branco: 24</span></div></div><div class="resultcard"><h3 style="margin-top:0;color:var(--azul)">Percentual de acertos</h3><div class="piewrap"><div class="pie" id="pie" role="img" aria-label="Gráfico de pizza do percentual de acertos"></div><div class="legend"><span><i class="swatch good"></i><b id="pieCorrect">0% acertadas</b></span><span><i class="swatch bad"></i><b id="pieOther">100% não acertadas</b></span></div></div></div></div>
+<h3 style="color:var(--azul)">Desempenho por conteúdo</h3><div id="topicPerformance" class="perform"></div><div class="insights"><article class="insight"><h3>Maior facilidade observada</h3><p id="easyInsight">Responda ao questionário para identificar os conteúdos mais fáceis.</p></article><article class="insight"><h3>Maior dificuldade observada</h3><p id="hardInsight">Responda ao questionário para identificar os conteúdos que merecem revisão.</p></article></div><h3 style="color:var(--azul)">Estudo orientado conforme o resultado</h3><div class="plan" id="studyPlan"></div><div class="answers" id="gabarito"><h3 style="color:var(--azul);margin-top:24px">Gabarito comentado</h3><p class="muted">Abra cada questão para ver a alternativa correta, a resposta marcada e a explicação.</p><div id="answerList"></div></div></section>
+</main>
+<footer><strong>Curso Preparatório Professora Samanta</strong><div>Matemática — Capítulo 24: Área de figuras geométricas planas</div><p class="small">Material interativo de revisão e diagnóstico de aprendizagem.</p></footer>
+
+<script>
+const Q=__QUESTIONS__;
+const groups=[
+{name:'Fórmulas e áreas básicas',ids:[1,2,3,4,5,9,41,42,43],advice:'Revise as fórmulas do retângulo, quadrado, paralelogramo, triângulo e trapézio. Desenhe cada figura, identifique base e altura e resolva um exemplo de cada. Confira sempre se a resposta está em unidade quadrada.'},
+{name:'Conversões de unidades',ids:[6,7,8,44,45],advice:'Treine conversões de unidades quadradas: multiplique por 100 para cada etapa em direção a uma unidade menor e divida por 100 para uma maior. Memorize 1 ha = 10.000 m², 1 a = 100 m² e 1 km² = 1.000.000 m².'},
+{name:'Figuras compostas e decomposição',ids:[10,11,12,13,14,15,40,46],advice:'Divida cada desenho em figuras conhecidas, calcule as áreas separadamente e depois some ou subtraia conforme o enunciado. Some partes sem sobreposição; subtraia regiões retiradas quando a questão pedir a área restante.'},
+{name:'Conceitos e situações-problema',ids:[16,39],advice:'Leia com atenção o que a questão solicita. Diferencie área e perímetro, mantenha as unidades consistentes e, em problemas de custo, calcule primeiro a área e depois multiplique pelo preço por metro quadrado.'}
+];
+const letters=['A','B','C','D'];
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function render(){document.getElementById('questions').innerHTML=Q.map(q=>`<article class="question"><div class="qhead"><span class="qnum">Questão ${q.n}</span><span class="cat">${esc(q.c)}</span></div><div class="qbody"><p>${esc(q.q)}</p>${q.o.map((o,i)=>`<label class="option"><input type="radio" name="q${q.n}" value="${i}"><span><b>${letters[i]})</b> ${esc(o)}</span></label>`).join('')}</div></article>`).join('');}
+function answer(q){const x=document.querySelector(`input[name="q${q.n}"]:checked`);return x?Number(x.value):null;}
+function stats(){return groups.map(g=>{const qs=Q.filter(q=>g.ids.includes(q.n));const n=qs.filter(q=>answer(q)===q.a).length;return {...g,total:qs.length,correct:n,pct:Math.round(n/qs.length*100)};});}
+function grade(){
+const answered=Q.filter(q=>answer(q)!==null).length,correct=Q.filter(q=>answer(q)===q.a).length,wrong=answered-correct,blank=Q.length-answered,pct=Math.round(correct/Q.length*100);
+document.getElementById('score').textContent=pct+'%';
+document.getElementById('scoreText').textContent=pct<50?'Retome os conceitos fundamentais e pratique passo a passo.':pct<75?'Você já compreende parte do conteúdo; revise os erros e tente novamente.':pct<90?'Bom resultado. Reforce os pontos em que houve dúvida.':'Ótimo desempenho! Continue praticando para consolidar os conceitos.';
+document.getElementById('correctBadge').textContent='Acertos: '+correct;
+document.getElementById('wrongBadge').textContent='Erros: '+wrong;
+document.getElementById('blankBadge').textContent='Em branco: '+blank;
+document.getElementById('pie').style.background=`conic-gradient(var(--bom) 0 ${pct}%,var(--erro) ${pct}% 100%)`;
+document.getElementById('pieCorrect').textContent=pct+'% acertadas';
+document.getElementById('pieOther').textContent=(100-pct)+'% não acertadas';
+const st=stats();
+document.getElementById('topicPerformance').innerHTML=st.map(s=>`<div class="rowperf"><strong>${esc(s.name)} (${s.correct}/${s.total})</strong><div class="bar"><span style="width:${s.pct}%"></span></div><div class="pct">${s.pct}%</div></div>`).join('');
+const ordered=[...st].sort((a,b)=>b.pct-a.pct),easy=ordered[0],hard=ordered[ordered.length-1];
+document.getElementById('easyInsight').textContent=answered?`${easy.name}: ${easy.pct}% de acertos (${easy.correct} de ${easy.total}). Use este conteúdo como base para continuar avançando.`:'Ainda não há respostas suficientes para identificar facilidades.';
+document.getElementById('hardInsight').textContent=answered?`${hard.name}: ${hard.pct}% de acertos (${hard.correct} de ${hard.total}). Priorize a revisão deste tema.`:'Responda às questões para localizar as maiores dificuldades.';
+document.getElementById('studyPlan').innerHTML=[...st].sort((a,b)=>a.pct-b.pct).map((s,i)=>`<article class="planitem"><h3>${i+1}. ${esc(s.name)} — ${s.pct}%</h3><p>${esc(s.advice)}</p></article>`).join('');
+document.getElementById('answerList').innerHTML=Q.map(q=>{const given=answer(q),status=given===q.a?'Resposta correta':given===null?'Não respondida':'Resposta incorreta',cls=given===q.a?'ok':given===null?'':'no';return `<details><summary>Questão ${q.n} — gabarito ${letters[q.a]} <span class="${cls}" style="float:right">${status}</span></summary><div class="answerbody"><p><b>Alternativa correta:</b> ${letters[q.a]}) ${esc(q.o[q.a])}</p><p><b>Sua resposta:</b> ${given===null?'Em branco':letters[given]+') '+esc(q.o[given])}</p><p><b>Comentário:</b> ${esc(q.w)}</p></div></details>`}).join('');
+const r=document.getElementById('resultado');r.classList.add('show');
+document.getElementById('status').textContent=`Correção concluída: ${correct} acertos de ${Q.length}.`;
+r.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function reset(){document.querySelectorAll('#questions input').forEach(x=>x.checked=false);document.getElementById('resultado').classList.remove('show');document.getElementById('status').textContent='Questionário reiniciado. Nenhuma questão corrigida ainda.';document.getElementById('questionario').scrollIntoView({behavior:'smooth'});}
+render();
+document.getElementById('gradeBtn').addEventListener('click',grade);
+document.getElementById('resetBtn').addEventListener('click',reset);
+</script>
+</body>
+</html>
